@@ -41,4 +41,4 @@ This user has a specific set of the requirements to the car. Use a lot of filter
 
 2. Run the following command to open the Cypress Test Runner:
    ```bash
-   npm run cypress:open
+   npx cypress run
