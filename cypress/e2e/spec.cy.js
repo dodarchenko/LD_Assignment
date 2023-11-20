@@ -15,7 +15,7 @@ describe('LD test assignment', () => {
     }); 
   })
 
-  it('TC_1 Check cars specifications', () => {
+  it('TC_1 view cars specifications', () => {
     const resultsPage = new ResultsPage ()
     resultsPage.getSpecificationsBtn().first().should('be.visible').click()
     cy.get('.MuiIconButton-label > .MuiBox-root').should('be.visible').click()
@@ -37,7 +37,7 @@ describe('LD test assignment', () => {
     cy.checkConfirmationEmail() //It will fail because of the connection   
   })
 
-  it('TC_4 Without trade-in booking', () => {
+  it('TC_4 Booking without trade-in', () => {
     const resultsPage = new ResultsPage ()
     const composePage = new ComposePage ()
     resultsPage.getComposeBtn().first().click();
