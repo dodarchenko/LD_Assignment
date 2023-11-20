@@ -42,18 +42,14 @@ describe('LD test assignment', () => {
     const composePage = new ComposePage ()
     resultsPage.getComposeBtn().first().click();
     composePage.getWithoutTradeInBtn().click();
-
-    // Use .then() to wait for the promise to resolve before proceeding
     composePage.getMaxDownPayAmount().then((maxDownPayment) => {
       // Remove the dot (,) and convert the string to an integer
       const numericValue = parseInt(maxDownPayment.replace('.', ''), 10);
   
       // Ensure numericValue is a valid number
       if (!isNaN(numericValue)) {
-          // Convert the number back to a string to type it in the input field
+        
           const maxDownPaymentInc = (numericValue+1).toString();
-  
-          // Use .type() inside .then() to make sure the input is populated after resolving the promise
           composePage.getMaxDownPayInput().clear().should('be.empty').type(maxDownPaymentInc).then(() => {
               cy.get('[data-testid="calculate-monthy-payment"]').click();
               composePage.getErrorMessage().should('be.visible');
